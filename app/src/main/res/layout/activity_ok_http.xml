@@ -13,15 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="113dp"
         android:layout_margin="5dp"
-        android:layout_weight="1">
+        >
 
         <TextView
             android:id="@+id/tv_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="网络请求"
-            android:textSize="22sp"
-            android:visibility="gone" />
+            />
 
 
     </ScrollView>
@@ -34,8 +33,9 @@
         <ImageView
             android:id="@+id/iv_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:visibility="gone"/>
 
     </FrameLayout>
 

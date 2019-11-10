@@ -53,6 +53,7 @@ public class HttpURLConnectionActivity extends AppCompatActivity implements View
 
     }
 
+//data/data
 
     @Override
     public void onClick(View v) {

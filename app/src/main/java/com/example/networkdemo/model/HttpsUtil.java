@@ -2,6 +2,7 @@ package com.example.networkdemo.model;
 
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -9,6 +10,8 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
+import okhttp3.OkHttpClient;
 
 public class HttpsUtil {
 
@@ -52,19 +55,19 @@ public class HttpsUtil {
         }
     }
 
-//    public static OkHttpClient handleSSLHandshakeByOkHttp() {
-//        X509TrustManager trustManager = (X509TrustManager) getTrustManager()[0];
-//
-//        return new OkHttpClient.Builder()
-//                .connectTimeout(10, TimeUnit.SECONDS)
-//                .writeTimeout(10, TimeUnit.SECONDS)
-//                .readTimeout(10, TimeUnit.SECONDS)
-//                //支持HTTPS请求，跳过证书验证
-//                .sslSocketFactory(getSSLSocketFactory(), trustManager)
-//                .hostnameVerifier(new TrustAllHostnameVerifier())
-//                .build();
-//    }
-//
+    public static OkHttpClient handleSSLHandshakeByOkHttp() {
+        X509TrustManager trustManager = (X509TrustManager) getTrustManager()[0];
+
+        return new OkHttpClient.Builder()
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
+                //支持HTTPS请求，跳过证书验证
+                .sslSocketFactory(getSSLSocketFactory(), trustManager)
+                .hostnameVerifier(new TrustAllHostnameVerifier())
+                .build();
+    }
+
 //    public static void handleSSLHandshakeByVolley() {
 //        try {
 //            SSLContext sc = SSLContext.getInstance("SSL");
